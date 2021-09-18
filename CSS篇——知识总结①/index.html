@@ -536,7 +536,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.7k
                 </div>
                 
 
@@ -588,6 +588,17 @@
 <p>​        伪类和伪元素都是用来修饰<em>不在</em>文档树种的部分，比如一句话种的第一句话或者列表的第一个元素。<br>伪类：用于当已有的元素处于某个状态时，为其添加对应的样式，这个状态是根据用户行为而改变的。比如当用户悬停在指定的元素时，我们可以通过:hover来描述这个状态。<br>​        伪元素：创建一些不在文档树中的元素，并为其添加样式。他们允许我们为元素的某部分设置样式。比如，我们通过::before来用于在一个<em>元素前</em>增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这个文本实际不在文档书中。<br>​        但是有些浏览器单冒号也可以表示伪元素，由于旧版w3c规范未对其进行特别区分。</p>
 <h2 id="4-CSS中有哪些属性可以继承？"><a href="#4-CSS中有哪些属性可以继承？" class="headerlink" title="4.CSS中有哪些属性可以继承？"></a>4.CSS中有哪些属性可以继承？</h2><p>​        每一个属性在定义中都会指定这个属性是否具有继承性，一个具有继承性的属性会在没有指定值的时候，会使用父元素的同属性的值。<br>​        一般具有继承性的属性有，字体相关的属性: font-size 和 font-wight 。文本相关的，color 和 text-align 等（想象一下，如果color属性不能继承，那我们就得为每个元素来设置颜色属性了，这太麻烦了）。表格的一些布局属性、列表属性 list-style 等。还有光标属性 cursor 、元素可见性 visibility。<br>​        当一个属性不是可继承属性的时候，我们也可以通过设置为inherit来使它从父属性那获取同属性名的值来继承。</p>
 <p>​        以上都是常见的规则，还有很多其他可继承和不可继承的属性，只是需要我们多去尝试而已。</p>
+<h2 id="5-CSS优先级算法如何计算？"><a href="#5-CSS优先级算法如何计算？" class="headerlink" title="5.CSS优先级算法如何计算？"></a>5.CSS优先级算法如何计算？</h2><p>​        首先判断一条属性声明是否有权重。也就是 是否在声明后面又!important。一条声明如果加上了权重。那么它的优先级就是最高的。前提是它之后不再出现相同权重。如果权重相同，我们则需要去比较匹配规则的特殊性。<br>一个匹配规则一般由多个选择器组成，一条规则的特殊性由组成它的选择器的特殊性累加而成。选择器的特殊性可以分为四个等级。<br>​        第一个等级是行内样式为1000，第二等级是id选择器，为0100，第三等级是类选择器、类类选择器和属性选择器是0010，<br>​        第四个等级是元素选择器和伪元素选择器，为0001。规则中每出现一个选择器，就将它的特殊性进行叠加，这个叠加只限于对应的等级的叠加，不会产生进位。选择器特殊性值的比较是从左向右排序的，也就是说以1开头的特殊值要比以0开头的特殊值要大。<br>​        比如说特殊值为1000的规则优先级就比特殊值0999的规则高。如果两个规则的特殊性值相等的时候，那么就根据他们的引入顺序，后出现的规则的优先级高</p>
+<h2 id="6-div居中的方法？"><a href="#6-div居中的方法？" class="headerlink" title="6.div居中的方法？"></a>6.div居中的方法？</h2><p>​        方法一：利用绝对定位，设置四个方向的值都为0，并将margin设置为auto,由于高度固定，因此对应方向实现水平，可以实现水平和垂直方向上的居中。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;   </span><br><span class="line">    <span class="attribute">background-color</span>: pink;    <span class="comment">/*方便看效果*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        方法二：利用绝对定位，设置top 50% left 50%定位到页面的中心 再通过margin负值来调整元素的中心到页面中心。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;<span class="comment">/*绝对定位*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: -<span class="number">150px</span> -<span class="number">250px</span>;<span class="comment">/*外边距为自身宽高的一半*/</span></span><br><span class="line">    <span class="attribute">background-color</span>: lightgreen;<span class="comment">/*方便看效果*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        方法三：设置 top 50% left 50% 定位到页面的中心，通过 transform:transalte(-50%,-50%) 。（未知容器的宽高，利用<code>transform</code>属性）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute; <span class="comment">/*相对定位或绝对定位均可*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">background-color</span>: pink; <span class="comment">/*方便看效果*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        方法四：利用flex布局，通过align-items:center和justify-conten:center设置容器的垂直和水平方向为居中对齐，然后它的子元素也可以实现垂直和水平的居中。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*利用flex布局实际使用时应考虑兼容性*/</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">align-items</span>: center;    <span class="comment">/*垂直居中*/</span></span><br><span class="line">    <span class="attribute">justify-content</span>: center;    <span class="comment">/*水平居中*/</span></span><br><span class="line">    <span class="attribute">background-color</span>: bisque;    </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: aqua;    <span class="comment">/*方便看效果*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>效果如下：</p>
@@ -1183,6 +1194,18 @@
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%BD%E6%95%B0/">
+                        <span class="chip bg-color">函数</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -1420,7 +1443,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1.8k</span>
+                        class="white-color">2.4k</span>
             
             
             
