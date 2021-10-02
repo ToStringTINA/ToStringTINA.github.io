@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="数组去重, 陶雨婷的博客">
+    <meta name="keywords" content="leetcode字符串Ⅰ, 陶雨婷的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数组去重 | 陶雨婷的博客</title>
+    <title>leetcode字符串Ⅰ | 陶雨婷的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -381,7 +381,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数组去重</h1>
+                    <h1 class="description center-align post-title">leetcode字符串Ⅰ</h1>
                 </div>
             </div>
         </div>
@@ -497,12 +497,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Javascript/">
-                                <span class="chip bg-color">Javascript</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E7%BB%84/">
-                                <span class="chip bg-color">数组</span>
+                            <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                                <span class="chip bg-color">字符串</span>
                             </a>
                         
                     </div>
@@ -526,21 +526,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-11
+                    2021-10-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-19
+                    2021-10-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    277
+                    1.8k
                 </div>
                 
 
@@ -562,14 +562,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本篇博客用来测试是否可以成功部署。</p>
-<p>//现在多一条，重新部署却出了问题，再试试</p>
-<h2 id="js数组去重"><a href="#js数组去重" class="headerlink" title="js数组去重"></a>js数组去重</h2><p>JavaScript数组去重有多种方法，这里简单列举三种。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">方法一：双重<span class="keyword">for</span>循环</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">5</span>],flag = [];</span><br><span class="line"><span class="keyword">var</span> temp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    temp = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = i + <span class="number">1</span> ;j &lt; arr.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[j] == arr[i]) &#123;</span><br><span class="line">            arr.splice(j,<span class="number">1</span>);</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    flag.push(temp);</span><br><span class="line">&#125;</span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">number , index</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;数字&quot;</span> + number + <span class="string">&quot;出现了&quot;</span> + flag[index] + <span class="string">&quot;次&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">            </span><br></pre></td></tr></table></figure>
+                <h2 id="（一）无重复字符的最长子串"><a href="#（一）无重复字符的最长子串" class="headerlink" title="（一）无重复字符的最长子串"></a>（一）无重复字符的最长子串</h2><p>题目描述：给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<h4 id="解法一："><a href="#解法一：" class="headerlink" title="解法一："></a>解法一：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ary=<span class="keyword">new</span> <span class="built_in">Map</span>();    <span class="comment">//存放字符和对应下标</span></span><br><span class="line">    <span class="keyword">var</span> i=<span class="number">0</span>,j=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=j&amp;&amp;j&lt;s.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ary[s[j]]==<span class="literal">undefined</span>)&#123;</span><br><span class="line">            ary[s[j]]=<span class="number">1</span>;</span><br><span class="line">            ans=<span class="built_in">Math</span>.max(ans,j-i+<span class="number">1</span>);</span><br><span class="line">            j++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            ary[s[i]]=<span class="literal">undefined</span>;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">方法二：利用indexOf()和push()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">noRepeat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> newArr = [];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line">		<span class="keyword">if</span>(newArr.indexOf(arr[i]) == -<span class="number">1</span>)&#123;</span><br><span class="line">			newArr.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(noRepeat(arr));</span><br></pre></td></tr></table></figure>
+<h4 id="解法二："><a href="#解法二：" class="headerlink" title="解法二："></a>解法二：</h4><p>双指针 + string.indexOf()。</p>
+<p>可快速变换左下标，但每次都从首部开始遍历，如果字符串过长，性能会下降，不如hash。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="params">s</span> =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span>;   <span class="comment">//字串开始位置</span></span><br><span class="line">    <span class="keyword">let</span> right = <span class="number">0</span>;     <span class="comment">//字串最大长度，即结束位置</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length ; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(s.indexOf(s[i],left) &lt; i)&#123;</span><br><span class="line">            <span class="comment">// 如果当前窗口有重复的字符，子串开始位置变成重复字符的下一个位置</span></span><br><span class="line">            left = s.indexOf(s[i],left) + <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 如果没有重复，长度出现更新</span></span><br><span class="line">            right = <span class="built_in">Math</span>.max(right,i - left + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">方法三：sort()先排序，再两两比较，若相等则splice();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">noRepeat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123; <span class="keyword">return</span> a-b; &#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i+<span class="number">1</span>] == arr[i])&#123;</span><br><span class="line">            arr.splice(i+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(noRepeat(arr));</span><br></pre></td></tr></table></figure>
+<h4 id="解法三："><a href="#解法三：" class="headerlink" title="解法三："></a>解法三：</h4><p>双指针 + map()。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="params">s</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span>;    <span class="comment">//左指针</span></span><br><span class="line">    <span class="keyword">let</span> res = <span class="number">0</span>;    <span class="comment">//记录了最终结果</span></span><br><span class="line">    <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; s.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(map.has(s[i]) &amp;&amp; map.get(s[i]) &gt;= left) &#123;</span><br><span class="line">            left = map.get(s[i]) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res = <span class="built_in">Math</span>.max(res , i - left + <span class="number">1</span>);</span><br><span class="line">        map.set(s[i] , i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="（二）最长公共前缀"><a href="#（二）最长公共前缀" class="headerlink" title="（二）最长公共前缀"></a>（二）最长公共前缀</h2><p>题目描述：编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
+<h4 id="解法一：-1"><a href="#解法一：-1" class="headerlink" title="解法一："></a>解法一：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="params">strs</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(strs.length ===<span class="number">0</span> )</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">let</span> ans = strs[<span class="number">0</span>];    <span class="comment">//初始化公共字符串</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; strs.length; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(;j &lt; strs[i].length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(strs[i][j] != ans[j])</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = ans.substr(<span class="number">0</span>,j);    <span class="comment">//截取相同部分</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="（三）字符串相乘"><a href="#（三）字符串相乘" class="headerlink" title="（三）字符串相乘"></a>（三）字符串相乘</h2><p>题目描述：给定两个以字符串形式表示的非负整数 <code>num1</code> 和 <code>num2</code>，返回 <code>num1</code> 和 <code>num2</code> 的乘积，它们的乘积也表示为字符串形式。</p>
+<p>说明：1.num1 和 num2 的长度小于110。<br>            2.num1 和 num2 只包含数字 0-9。<br>            3.num1 和 num2 均不以零开头，除非是数字 0 本身。<br>            4.不能使用任何标准库的大数类型（比如 BigInteger）或直接将输入转换为整数来处理。</p>
+<h4 id="解法一：-2"><a href="#解法一：-2" class="headerlink" title="解法一："></a>解法一：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(num1==<span class="string">&#x27;0&#x27;</span>||num2==<span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> len1=num1.length,len2=num2.length;</span><br><span class="line">    <span class="keyword">var</span> store=<span class="keyword">new</span> <span class="built_in">Array</span>(num1.length+num2.length-<span class="number">1</span>).fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;len1;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j=<span class="number">0</span>;j&lt;len2;j++)&#123;</span><br><span class="line">            store[i+j]+=num1[i]*num2[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> ans=num1.length+num2.length-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> t=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> r=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(ans--)&#123;</span><br><span class="line">        r=(store[ans]+t)%<span class="number">10</span>;</span><br><span class="line">        t=(store[ans]+t)/<span class="number">10</span>|<span class="number">0</span>;</span><br><span class="line">        store[ans]=r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(t!=<span class="number">0</span>)</span><br><span class="line">        store.splice(<span class="number">0</span>,<span class="number">0</span>,t);</span><br><span class="line">    <span class="comment">//用于把数组中的所有元素放入一个字符串。 </span></span><br><span class="line">    <span class="keyword">return</span>  store.join(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="comment">//  console.log(typeof store.join(&quot;&quot;)) // string</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="解法二：-1"><a href="#解法二：-1" class="headerlink" title="解法二："></a>解法二：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> l1 = num1.length;</span><br><span class="line">    <span class="keyword">const</span> l2 = num2.length;</span><br><span class="line">    <span class="keyword">const</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(l1 + l2).fill(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = l1 - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">const</span> n1 = +num1[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = l2 - <span class="number">1</span>;j &gt;= <span class="number">0</span>; j--)&#123;</span><br><span class="line">            <span class="keyword">const</span> n2 = +num2[j];</span><br><span class="line">            <span class="keyword">const</span> res = n1 * n2;</span><br><span class="line">            <span class="keyword">const</span> sum = arr[i + j + <span class="number">1</span>] + res;</span><br><span class="line">            </span><br><span class="line">            arr[i + j + <span class="number">1</span>] = sum % <span class="number">10</span>;</span><br><span class="line">            arr[i + j] += sum /<span class="number">10</span> | <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(arr[<span class="number">0</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">        arr.shift();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr.length ? arr.join(<span class="string">&#x27;&#x27;</span>) : <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="（四）反转字符串系列"><a href="#（四）反转字符串系列" class="headerlink" title="（四）反转字符串系列"></a>（四）反转字符串系列</h2><h3 id="4-1-344-反转字符串Ⅰ"><a href="#4-1-344-反转字符串Ⅰ" class="headerlink" title="4.1 [344]反转字符串Ⅰ"></a>4.1 [344]反转字符串Ⅰ</h3><p>题目描述：编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 s 的形式给出。</p>
+<p>不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 利用双指针，将关于中点对称的元素交换</span></span><br><span class="line"><span class="comment"> * 并移动指针，直至相交</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> reverseString = <span class="function"><span class="params">s</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span>,right = s.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        [s[left] , s[right]] = [s[right] , s[left]];</span><br><span class="line">        left++;</span><br><span class="line">        right--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-541-反转字符串Ⅱ"><a href="#4-2-541-反转字符串Ⅱ" class="headerlink" title="4.2 [541]反转字符串Ⅱ"></a>4.2 [541]反转字符串Ⅱ</h3><p>题目描述：给定一个字符串 s 和一个整数 k，从字符串开头算起，每计数至 2k 个字符，就反转这 2k 字符中的前 k 个字符。</p>
+<p>​        ·如果剩余字符少于 k 个，则将剩余字符全部反转。<br>​        ·如果剩余字符小于 2k 但大于或等于 k 个，则反转前 k 个字符，其余字符保持原样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 以 2k 为一个单位长度进行遍历，反转 [i - k + 1] 区间的内容。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> reverseArr = <span class="function">(<span class="params">left , right , arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">        [s[left] , s[right]] = [s[right] , s[left]];</span><br><span class="line">        left++;</span><br><span class="line">        right--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reverseStr = <span class="function">(<span class="params">s, k</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> arr = s.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i += <span class="number">2</span> * k) &#123;</span><br><span class="line">        <span class="comment">// 反转该区间</span></span><br><span class="line">        reverseArr(i , i + k - <span class="number">1</span>,arr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-557-反转字符串中的单词Ⅲ"><a href="#4-3-557-反转字符串中的单词Ⅲ" class="headerlink" title="4.3 [557]反转字符串中的单词Ⅲ"></a>4.3 [557]反转字符串中的单词Ⅲ</h3><p>题目描述：给定一个字符串，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
+<h4 id="解法一：-3"><a href="#解法一：-3" class="headerlink" title="解法一："></a>解法一：</h4><p>按单词拆分字符串来反转。可有两种方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reverseWords = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> array = s.split(<span class="string">&#x27; &#x27;</span>)；</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i =<span class="number">0</span>;i&lt;array.length;i++)&#123;</span><br><span class="line">        array[i] =  array[i].split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)；</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array.join(<span class="string">&#x27; &#x27;</span>)；</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reverseWords = <span class="function"><span class="params">s</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> s.split(<span class="string">&#x27; &#x27;</span>).map(<span class="function"><span class="params">ele</span> =&gt;</span> ele.split(<span class="string">&quot;&quot;</span>).reverse().join(<span class="string">&quot;&quot;</span>)).join(<span class="string">&quot; &quot;</span>);</span><br><span class="line">    <span class="comment">//map函数后，数组每个元素都翻转了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="解法二：-2"><a href="#解法二：-2" class="headerlink" title="解法二："></a>解法二：</h4><p>按字母拆分整个字符串，再进行反转。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reverseWords = <span class="function"><span class="params">s</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> arr = s.split(<span class="string">&quot;&quot;</span>).reverse().join(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> arr.split(<span class="string">&quot; &quot;</span>).reverse().join(<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="（五）字符串排列"><a href="#（五）字符串排列" class="headerlink" title="（五）字符串排列"></a>（五）字符串排列</h2><p>题目描述：给你两个字符串 s1 和 s2 ，写一个函数来判断 s2 是否包含 s1 的排列。如果是，返回 true ；否则，返回 false 。</p>
+<p>换句话说，s1 的排列之一是 s2 的 子串 。</p>
+<p>创建长度26的数组count1和count2，统计s1字符的出现次数，到count1<br>指针start，保存所要找的s2子串的开头。<br>指针i扫s2，更新当前字符的出现次数到count2，同时判断start上的s2字符的出现次数，是否已经大于了它在s1的出现次数<br>如果大于，说明这个字符，s1并没有那么多，要窗口左移，剔除start上的s2字符<br>如果不大于，说明start字符在s2的出现次数还没达到s1的标准，窗口要扩张。纳入新字符<br>如果遍历过程中count1和count2全等，说明找到了满足条件的子串，返回真<br>如果遍历s2结束，始终没有返回真，说明怎么也找不到，返回假.</p>
+<p>【思路参考-<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/permutation-in-string/solution/deng-jie-zhuan-hua-wen-ti-hua-dong-chuan-u916/%E3%80%91">https://leetcode-cn.com/problems/permutation-in-string/solution/deng-jie-zhuan-hua-wen-ti-hua-dong-chuan-u916/】</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> checkInclusion = <span class="function"><span class="keyword">function</span> (<span class="params">s1, s2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> len1 = s1.length , len2 = s2.length;</span><br><span class="line">    <span class="keyword">const</span> count1 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">26</span>).fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">const</span> count2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">26</span>).fill(<span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">let</span> j = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> (; j &lt; len1; j++) &#123;</span><br><span class="line">        count1[s1[j].charCodeAt(<span class="number">0</span>) - <span class="number">97</span>]++;</span><br><span class="line">        <span class="built_in">console</span>.log(s1[j] + <span class="string">&#x27;-&#x27;</span> + s1[j].charCodeAt(<span class="number">0</span>) - <span class="number">97</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">        count2[s2[i].charCodeAt(<span class="number">0</span>) - <span class="number">97</span>]++;</span><br><span class="line">        <span class="keyword">while</span> (start&lt;=i&amp;&amp; count2[s2[start].charCodeAt(<span class="number">0</span>) - <span class="number">97</span>]&gt;count1[s2[start].charCodeAt(<span class="number">0</span>) - <span class="number">97</span>]) &#123;</span><br><span class="line">            count2[s2[start].charCodeAt(<span class="number">0</span>) - <span class="number">97</span>]--;</span><br><span class="line">            start++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (count1.join(<span class="string">&#x27;&#x27;</span>) === count2.join(<span class="string">&#x27;&#x27;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;&#125;;</span><br></pre></td></tr></table></figure>
 
 
                 
@@ -597,7 +628,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://onlinetao.cn/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">https://onlinetao.cn/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</a>
+                    <a href="https://onlinetao.cn/leetcode%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%85%A0/">https://onlinetao.cn/leetcode%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%85%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -635,12 +666,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Javascript/">
-                                    <span class="chip bg-color">Javascript</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E7%BB%84/">
-                                    <span class="chip bg-color">数组</span>
+                                <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                                    <span class="chip bg-color">字符串</span>
                                 </a>
                             
                         </div>
@@ -1078,65 +1109,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/hello-world/">
+                <a href="/leetcode%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%85%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="leetcode字符串Ⅰ">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">leetcode字符串Ⅰ</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-12
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            TaoYuTing
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="数组去重">
-                        
-                        <span class="card-title">数组去重</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            js数组去重有多种方法，如利用indexof()和push()，或者sort()和splice()
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-02
                             </span>
                         <span class="publish-author">
                             
@@ -1154,12 +1149,61 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Javascript/">
-                        <span class="chip bg-color">Javascript</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="chip bg-color">数组</span>
+                    <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                        <span class="chip bg-color">字符串</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/js%E7%AF%87%E2%80%94%E2%80%94%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E2%91%A1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="js篇——知识总结Ⅱ">
+                        
+                        <span class="card-title">js篇——知识总结Ⅱ</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本篇关键词：call() apply() 类数组 原型 原型链 原型继承
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
                     </a>
                     
                 </div>
